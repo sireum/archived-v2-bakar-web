@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sireum Bakar v2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sireum.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     'v2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="None" href="index.html#document-index" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">Sireum Bakar v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-intro/intro">Introduction</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-sireum_platform/sireum_platform">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-development-environment">Setting up Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sireum-bakar-tool-sets">Sireum Bakar Tool Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-translator/translator">Spark and Ada Front-End: Translators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#document-translator/overview">Overview</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#document-translator/gnat2xml/gnat2xml">Ada-to-XML Translator: gnat2xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#document-translator/java/java">Java Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#document-translator/scala/scala">Scala Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#document-translator/jago/jago">Jago: Coq and OCaml Targets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#type-translator">Type Translator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#program-translator">Program Translator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#jago-command-line-options">Jago Command-Line Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-alir/alir">Alir</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-kiasan/kiasan">Kiasan</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-gps/gps">GNAT Programming Studio (GPS) Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bakar-gps-kiasan-plugin">Bakar GPS Kiasan plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-setup">Quick setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#manual-setup">Manual setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#preferences">Preferences</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-the-sireum-bakar-v2-documentation">
+<h1>Welcome to the Sireum Bakar v2 Documentation<a class="headerlink" href="#welcome-to-the-sireum-bakar-v2-documentation" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body"><a class="reference external" href="http://people.cis.ksu.edu/~belt">Jason Belt</a>, <a class="reference external" href="http://people.cis.ksu.edu/~zhangzhi">Zhi Zhang</a>, <a class="reference external" href="http://people.cis.ksu.edu/~jjedrys">Jakub Jedryszek</a>, <a class="reference external" href="http://people.cis.ksu.edu/~robby">Robby</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">contact:</th><td class="field-body">{ <a class="reference external" href="mailto:belt&#37;&#52;&#48;k-state&#46;edu">belt</a>, <a class="reference external" href="mailto:zhangzhi&#37;&#52;&#48;k-state&#46;edu">zhangzhi</a>, <a class="reference external" href="mailto:jjedrys&#37;&#52;&#48;k-state&#46;edu">jjedrys</a>, <a class="reference external" href="mailto:robby&#37;&#52;&#48;k-state&#46;edu">robby</a> } <tt class="docutils literal"><span class="pre">&#64;k-state.edu</span></tt></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body"><a class="reference external" href="http://santoslab.org">SAnToS Laboratory</a>, <a class="reference external" href="http://www.k-state.edu">Kansas State University</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">last updated:</th><td class="field-body">May 02, 2013</td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<span id="document-intro/intro"></span><div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<span id="document-sireum_platform/sireum_platform"></span><div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-core/git/nodes">Sireum Core repository</a>
+stores some of the core components of the Sireum (v2) software analysis platform.</p>
+<p><a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git/nodes">Sireum Bakar repository</a>
+stores various Spark/Ada translation tools and source code analysis and verification tools,
+which are built on top of Sireum Core components. It provides a useful development platform
+and can be extended to build various kinds of software static analyzers.</p>
+<div class="section" id="setting-up-development-environment">
+<h3>Setting up Development Environment<a class="headerlink" href="#setting-up-development-environment" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Download and install Sireum (the Development or Stable version) by following the instructions at: <a class="reference external" href="http://www.sireum.org/download">http://www.sireum.org/download</a>.</p>
+</li>
+<li><p class="first">Launch <a class="reference external" href="http://www.sireum.org/features">Sireum Development Environment (DE)</a>
+(add <tt class="docutils literal"><span class="pre">-h</span></tt> for help to supply custom Eclipse command-line arguments such
+as configuring memory):</p>
+<div class="highlight-python"><pre>sireum launch sireumdev</pre>
+</div>
+<p>Pick a directory for your workspace when asked. Moreover, agree when asked to run Scala diagnostics;
+enable JDT Weaving for Scala IDE and then quit DE; relaunch Sireum DE.</p>
+</li>
+<li><p class="first">Add <tt class="docutils literal"><span class="pre">SIREUM_HOME/apps/platform/java</span></tt> in Eclipe&#8217;s
+<a class="reference external" href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-installed_jres.htm">Java Installed JREs preference page</a>,
+and make it the default. In addition, set Eclipse&#8217;s <a class="reference external" href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fref-preferences-compiler.htm">Java Compiler compliance level</a> to 1.7.
+(If Eclipse shows you a dialog box indicating that &#8220;Subversive Native Library Not Available&#8221;,
+it means that you do not have native SVN installed; click Ok to close the
+dialog box. You can correct this issue by setting SVN Interface Client to
+&#8220;SVNKit&#8221; in the  Eclipse&#8217;s Team-&gt;SVN preference page.)</p>
+</li>
+<li><p class="first">Import all projects in:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes">Sireum Core Prelude Repo</a><ul>
+<li>read-only: <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-core.prelude.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;git.assembla.com:sireum-core.prelude.git</span></tt></li>
+</ul>
+</li>
+<li><a class="reference external" href="https://www.assembla.com/code/sireum-core/git/nodes">Sireum Core Repo</a><ul>
+<li>read-only: <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-core.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;git.assembla.com:sireum-core.git</span></tt></li>
+</ul>
+</li>
+</ul>
+<p>This should import projects such as <tt class="docutils literal"><span class="pre">sireum-core-test</span></tt>.</p>
+</li>
+<li><p class="first">Run all Sireum Core tests by right clicking the project <tt class="docutils literal"><span class="pre">sireum-core-test</span></tt>
+and selecting <tt class="docutils literal"><span class="pre">Run</span> <span class="pre">As</span></tt> and then <tt class="docutils literal"><span class="pre">Scala</span> <span class="pre">JUnit</span> <span class="pre">Test</span></tt>; all tests should pass.</p>
+</li>
+<li><p class="first">If you are making changes to the codebase, import the following in the
+respective Eclipse preference pages:</p>
+<ul class="simple">
+<li>In <a class="reference external" href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fcodestyle%2Fref-preferences-cleanup.htm">Java -&gt; Code Style -&gt; Clean Up preference page</a>:
+<a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes/master/sireum-util/codestyle/java-clean-up.xml">sireum-core.prelude/sireum-util/codestyle/java-clean-up.xml</a></li>
+<li>In <a class="reference external" href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fcodestyle%2Fref-preferences-formatter.htm">Java -&gt; Code Style -&gt; Formatter preference page</a>:
+<a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes/master/sireum-util/codestyle/java-formatter.xml">sireum-core.prelude/sireum-util/codestyle/java-formatter.xml</a></li>
+<li>In <a class="reference external" href="http://scala-ide.org/docs/current-user-doc/features/typingviewing/formatting/index.html">Scala -&gt; Formatter preference page</a>:
+<a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes/master/sireum-util/codestyle/scala-formatterPreferences.properties">sireum-core.prelude/sireum-util/codestyle/scala-formatterPreferences.properties</a></li>
+</ul>
+<p>Make sure to run Java source clean up before committing Java code.
+Similarly, make sure to run Scala formatter before committing Scala code.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="sireum-bakar-tool-sets">
+<h3>Sireum Bakar Tool Sets<a class="headerlink" href="#sireum-bakar-tool-sets" title="Permalink to this headline">¶</a></h3>
+<p>Import Sireum Bakar projects at:</p>
+<ul class="simple">
+<li>read-only: <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-bakar.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;git.assembla.com:sireum-bakar.git</span></tt></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Steps to import a project in Git:
+Click the following Eclipse menus:
+<tt class="docutils literal"><span class="pre">Window</span></tt> &gt; <tt class="docutils literal"><span class="pre">Show</span> <span class="pre">View</span></tt> &gt; <tt class="docutils literal"><span class="pre">Other...</span></tt> &gt; <tt class="docutils literal"><span class="pre">Git</span></tt> &gt; <tt class="docutils literal"><span class="pre">Git</span> <span class="pre">Repositories</span></tt>, select
+<tt class="docutils literal"><span class="pre">Clone</span> <span class="pre">a</span> <span class="pre">Git</span> <span class="pre">Repository</span> <span class="pre">and</span> <span class="pre">add</span> <span class="pre">the</span> <span class="pre">clone</span> <span class="pre">to</span> <span class="pre">this</span> <span class="pre">view</span></tt>, and then put the
+git location, for example <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-bakar.git</span></tt>, at URI.
+Finally, unfold the Git repository and right click <tt class="docutils literal"><span class="pre">Working</span> <span class="pre">Directory</span></tt> and choose
+<tt class="docutils literal"><span class="pre">Imports</span> <span class="pre">Projects...</span></tt> to import all projects under the Git repository into current
+Eclipse working space.</p>
+<p><tt class="docutils literal"><span class="pre">sireum</span></tt> is a software analysis platform developed by KSU SAnToS group,</p>
+<p><tt class="docutils literal"><span class="pre">bakar</span></tt> means <tt class="docutils literal"><span class="pre">spark</span></tt>, and</p>
+<p class="last"><tt class="docutils literal"><span class="pre">jago</span></tt> means <tt class="docutils literal"><span class="pre">coq</span></tt> in Indonesian.</p>
+</div>
+</div>
+</div>
+<span id="document-translator/translator"></span><div class="section" id="spark-and-ada-front-end-translators">
+<h2>Spark and Ada Front-End: Translators<a class="headerlink" href="#spark-and-ada-front-end-translators" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<span id="document-translator/overview"></span><div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<p>This section describes various translators for Spark/Ada 2012 program
+representation to representations using different programming/input languages.</p>
+</div>
+<span id="document-translator/gnat2xml/gnat2xml"></span><div class="section" id="ada-to-xml-translator-gnat2xml">
+<h3>Ada-to-XML Translator: gnat2xml<a class="headerlink" href="#ada-to-xml-translator-gnat2xml" title="Permalink to this headline">¶</a></h3>
+<p>gnat2xml translates Ada 2012 programs to a fully resolved Abstract Syntax Tree
+(AST) XML representation with an accompanying XML schema.
+The representation is based on GNAT ASIS representation, but the AST definitions
+are designed to be &#8220;typed&#8221;; that is, in contrast to ASIS where AST nodes are
+generic, AST kinds representing different language features have different
+types represented in the XML schema (as distinct complex types). The generated
+XML representation of Ada programs retains the following information:</p>
+<ol class="arabic simple">
+<li>Symbol information</li>
+<li>Type information</li>
+<li>Location information</li>
+</ol>
+<p>The most recent generated schema (with KSU patches) can be found at:</p>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/gnatxml.xsd">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/gnatxml.xsd</a></p>
+<p>The gnat2xml source code is available at:</p>
+<ul class="simple">
+<li>KSU branch: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master">https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master</a></li>
+<li>Inital AdaCore versionh: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/adacore">https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/adacore</a></li>
+</ul>
+<p>The initial version of gnat2xml is developed by AdaCore, Inc. as a sub-contract
+of Kansas State University&#8217;s U.S. Air Force Office of Scientific Research
+(AFOSR) award No. FA9550-09-0138. It is licensed under the GNU Public License
+(GPL) v3.</p>
+</div>
+<span id="document-translator/java/java"></span><div class="section" id="java-target">
+<h3>Java Target<a class="headerlink" href="#java-target" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-contact admonition">
+<p class="first admonition-title">Contact</p>
+<p class="last"><a class="reference external" href="mailto:belt&#37;&#52;&#48;k-state&#46;edu">Jason Belt</a></p>
+</div>
+<p>The Bakar Java translator generates Java binding from gnat2xml-generated schema using
+the Java Architecture for XML Binding (JAXB &#8211; <a class="reference external" href="http://jaxb.java.net">http://jaxb.java.net</a>),
+which is a part of the Java Standard Development Kit.</p>
+<p>To fine-tune JAXB generated Java classes, we developed a custom JAXB binding,
+which can be found at:</p>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/external.xsd">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/external.xsd</a></p>
+<p>The generated classes can be found at:</p>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/java/org/sireum/bakar/xml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/java/org/sireum/bakar/xml</a></p>
+<p>By using the JAXB runtime library, gnat2xml-generated Ada XML representations
+can be directly loaded as Java objects (instances of the Java classes generated
+by  using JAXB).</p>
+</div>
+<span id="document-translator/scala/scala"></span><div class="section" id="scala-target">
+<h3>Scala Target<a class="headerlink" href="#scala-target" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-contact admonition">
+<p class="first admonition-title">Contact</p>
+<p class="last"><a class="reference external" href="mailto:belt&#37;&#52;&#48;k-state&#46;edu">Jason Belt</a></p>
+</div>
+<p>The Bakar Scala Translator generates
+<a class="reference external" href="http://www.scala-lang.org/node/112">Scala extractor</a> object definitions.
+The main purpose is to be enable pattern matching of Ada JAXB Java objects.
+The translator uses Java reflection on JAXB generated Java classes in order to
+generate the extractors.</p>
+<p>The generated extractors are available at:</p>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/scala/org/sireum/bakar/xml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/scala/org/sireum/bakar/xml</a></p>
+</div>
+<span id="document-translator/jago/jago"></span><div class="section" id="jago-coq-and-ocaml-targets">
+<h3>Jago: Coq and OCaml Targets<a class="headerlink" href="#jago-coq-and-ocaml-targets" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-contact admonition">
+<p class="first admonition-title">Contact</p>
+<p class="last"><a class="reference external" href="mailto:zhangzhi&#37;&#52;&#48;k-state&#46;edu">Zhi Zhang</a></p>
+</div>
+<p>There are two kinds of Bakar Jago translators provided for the Coq and OCaml
+targets:
+(1) Type Translator, which translates gnat2xml-generated Ada XML Schema to
+(inductive) type definitions in Coq and OCaml, and (2) Program Translator, which
+translates Ada programs from gnat2xml-generated Ada fully resolved AST XML to
+Coq and OCaml code that constructs the AST.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Jago translation toolset currently handles a
+<a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-jago/src/main/resources/org/sireum/bakar/subset/SPARK_2014_Subset">subset of SPARK 2014</a>.
+Pre/Post aspects are not handled as the GNAT toolset version for the initial
+gnat2xml tool does not allow contracts to be attached directly to subprogram
+bodies.</p>
+</div>
+<div class="section" id="type-translator">
+<h4>Type Translator<a class="headerlink" href="#type-translator" title="Permalink to this headline">¶</a></h4>
+<p>Similar to the Bakar Scala Translator, the Bakar Jago Type Translator
+uses Java reflection on JAXB generated Java classes in order to
+generate Coq and OCaml type definitions.
+The translator uses a template-based approach; this allows us to use the same
+translator codebase for the Coq and OCaml targets by using two templates.</p>
+<p>Below are a couple of design guidelines that we used when developing the translator:</p>
+<ol class="arabic">
+<li><p class="first">The generated AST type definitions should be based on <a class="reference external" href="http://compcert.inria.fr/doc/html/Cminor.html">CompCert Cminor AST
+definitions</a>.</p>
+<p>For example, Cminor uses non-negative values to represent identifiers;
+we follow this style by using natural numbers to represent identifiers/names.
+More concretely, for example, <tt class="docutils literal"><span class="pre">idnum</span></tt> denotes local/global
+variables and has type <tt class="docutils literal"><span class="pre">nat</span></tt>, <tt class="docutils literal"><span class="pre">procnum</span></tt> denotes subprogram names,
+<tt class="docutils literal"><span class="pre">pkgnum</span></tt> denotes package names, and <tt class="docutils literal"><span class="pre">typenum</span></tt> denotes either standard
+data types or user defined types. The AST structure for expressions and
+statements is also organized in the same way as Cminor.</p>
+</li>
+<li><p class="first">The generated AST type should preserve fully resolved AST information.</p>
+<p>This is in contrast to Cminor where we have, for example, type information
+for (sub-) expressions, symbol information, and location information, etc.
+To ease attaching such information on AST nodes, we assign a unique number
+for each AST node that serves as keys for various tables (e.g., type tables).</p>
+</li>
+<li><p class="first">The generated OCaml AST type definitions should be the same as the result
+of extracting Coq AST type definitions to OCaml (with some extraction
+configuration to represent native types such as <tt class="docutils literal"><span class="pre">nat</span></tt> and <tt class="docutils literal"><span class="pre">bool</span></tt>).</p>
+</li>
+</ol>
+<p>The generated type definitions are avaiable at:</p>
+<ul class="simple">
+<li>Coq: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq</a></li>
+<li>OCaml: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml</a></li>
+</ul>
+</div>
+<div class="section" id="program-translator">
+<h4>Program Translator<a class="headerlink" href="#program-translator" title="Permalink to this headline">¶</a></h4>
+<p>Given gnat2xml-generated Ada XML representations, the Bakar Jago Program
+Translator uses JAXB to load the representations as Java objects (instances of
+Bakar Java Translator generated classes) and use the Scala extractors produced
+by the Bakar Scala Translator to translate the Ada AST to Coq and OCaml.
+Similar to the Type Translator, the Program Translator uses a template-based
+approach.</p>
+</div>
+<div class="section" id="jago-command-line-options">
+<h4>Jago Command-Line Options<a class="headerlink" href="#jago-command-line-options" title="Permalink to this headline">¶</a></h4>
+<p>Three steps are needed to do type and program translations for Ada:</p>
+<ol class="arabic simple">
+<li>Ada XML Schema and Ada XML AST must be generated using gnat2xml</li>
+<li>Java classes and Java objects must be generated for Ada XML Schema and Ada XML AST</li>
+<li>Do type and program translation for Ada based on its corresponding Java classes and Java objects</li>
+</ol>
+<p>Step 1 and 2 are necessary preprocessing operations in our Jago translation tool chain,
+so make sure that the tool gnat2xml is installed and available in current envirenment
+before running Jago translator.</p>
+<p><strong>Usage</strong>:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">mode</span> <span class="pre">[options]</span> <span class="pre">[&lt;src-files&gt;]</span> <span class="pre">[&lt;Output</span> <span class="pre">file&gt;]</span></tt>, where</div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sireum</span></tt> is a software analysis platform developed by KSU SAnToS group,
+<tt class="docutils literal"><span class="pre">bakar</span></tt> means <tt class="docutils literal"><span class="pre">spark</span></tt> in Indonesian, and <tt class="docutils literal"><span class="pre">./sireum</span> <span class="pre">bakar</span></tt> is a toolset
+for analyzing Spark/Ada program.</li>
+<li><tt class="docutils literal"><span class="pre">mode</span></tt> provides a switch between Type Translator and Program Translator. Available modes:<ul>
+<li><tt class="docutils literal"><span class="pre">type</span></tt>:   generate type definitions</li>
+<li><tt class="docutils literal"><span class="pre">program</span></tt>:   translation of Spark/Ada programs</li>
+</ul>
+</li>
+<li>available <tt class="docutils literal"><span class="pre">options</span></tt> using <tt class="docutils literal"><span class="pre">type</span></tt> switch are:<ul>
+<li><tt class="docutils literal"><span class="pre">-h</span> <span class="pre">|</span> <span class="pre">--help</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">-t</span> <span class="pre">|</span> <span class="pre">--type</span>&nbsp; <span class="pre">[Default:</span> <span class="pre">Coq,</span> <span class="pre">Choices:</span> <span class="pre">(Ocaml,</span> <span class="pre">Coq)]</span></tt></li>
+</ul>
+</li>
+<li>available <tt class="docutils literal"><span class="pre">options</span></tt> using <tt class="docutils literal"><span class="pre">program</span></tt> switch are:<ul>
+<li><tt class="docutils literal"><span class="pre">-h</span> <span class="pre">|</span> <span class="pre">--help</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">-p</span> <span class="pre">|</span> <span class="pre">--program</span>&nbsp; <span class="pre">[Default:</span> <span class="pre">Coq,</span> <span class="pre">Choices:</span> <span class="pre">(Ocaml,</span> <span class="pre">Coq)]</span></tt></li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">src-files</span></tt> specifies the Spark/Ada programs to be translated by Program Translator and it&#8217;s only used in <tt class="docutils literal"><span class="pre">program</span></tt> switch</li>
+<li><tt class="docutils literal"><span class="pre">Output</span> <span class="pre">file</span></tt> denotes the target file where the translated objects are written into. The translation results are printed in console if <tt class="docutils literal"><span class="pre">Output</span> <span class="pre">file</span></tt> is not supplied</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><p class="first">set up the tool</p>
+<ul>
+<li><p class="first">build gnat2xml</p>
+<ol class="arabic simple">
+<li>Download the latest wavefront version of ASIS and GNAT Pro from AdaCore.</li>
+</ol>
+<blockquote>
+<div><p>The versions we used for this documentation are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>ASIS: asis-7.2.0w-20130331-src</li>
+<li>GNAT PRO<ul>
+<li>Windows: gnatpro-7.2.0w-20130331-47-i686-pc-mingw32-bin</li>
+<li>Mac: gnatpro-7.2.0w-20130331-47-x86_64-apple-darwin10.8.0-bin</li>
+<li>Linux: gnatpro-7.2.0w-20130331-47-x86_64-pc-linux-gnu-bin</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">Download our customized Gnat2XML from <a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git-2/nodes">https://www.assembla.com/code/sireum-bakar/git-2/nodes</a>.
+Use the customized Gnat2XML to replace the one under asis-7.2.0w-20130331-src/toos/gnat2xml</p>
+</li>
+<li><p class="first">Refer to the following links for building gnat2xml under Linux, Mac and Windows:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Compile gnat2xml in Linux:</p>
+<p><a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20121129-ksu-linux-build-notes.txt">https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20121129-ksu-linux-build-notes.txt</a></p>
+</li>
+<li><p class="first">Compile gnat2xml in Mac:</p>
+<p><a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130411-ksu-macos-build-notes.txt">https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130411-ksu-macos-build-notes.txt</a></p>
+</li>
+<li><p class="first">Compile gnat2xml in Windows:</p>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130430-ksu.win64-build-notes.txt">https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130430-ksu.win64-build-notes.txt</a></p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</li>
+<li><p class="first">set PATH environment variable to include gnat2xml</p>
+<p>Assume that <tt class="docutils literal"><span class="pre">GNATBUNDLE_HOME</span></tt> denotes the directory where <tt class="docutils literal"><span class="pre">gnat2xml</span></tt> is installed.</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=GNATBUNDLE_HOME/bin/:$PATH</span></tt></p>
+<p>(or in Windows: <tt class="docutils literal"><span class="pre">set</span> <span class="pre">PATH=GNATBUNDLE_HOME\bin;%PATH%</span></tt>)</p>
+</div></blockquote>
+</li>
+<li><p class="first">now it&#8217;s ready to run the Jago tool for type/program translation</p>
+<p>In case of errors like: <tt class="docutils literal"><span class="pre">'scala'</span> <span class="pre">or</span> <span class="pre">'java'</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">recognized</span></tt></p>
+<p>$ set PATH=SIREUM_HOME/apps/platform/scala/bin:SIREUM_HOME/apps/platform/java/bin:$PATH</p>
+<p>(in windows: set PATH=SIREUM_HOME\apps\platform\scalabin;SIREUM_HOME\apps\platform\java\bin;%PATH%)</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Coq</span></tt>  (in Windows: <tt class="docutils literal"><span class="pre">sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Coq</span></tt>)</p>
+<ul class="simple">
+<li>this command calls the Type Translator to generate Coq type definitions for Ada XML schema and print the results on console</li>
+</ul>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Ocaml</span> <span class="pre">typ.ocaml</span></tt></p>
+<ul class="simple">
+<li>this command calls the Type Translator to generate Ocaml type definitions for Ada XML schema and write the results in <tt class="docutils literal"><span class="pre">typ.ocaml</span></tt></li>
+</ul>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">program</span> <span class="pre">-p</span> <span class="pre">Coq</span> <span class="pre">linear_div_fn.adb</span></tt></p>
+<ul class="simple">
+<li>this command calls the Program Translator to generate Coq objects for Spark/Ada program <tt class="docutils literal"><span class="pre">linear_div_fn.adb</span></tt> and print the results on console</li>
+</ul>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">program</span> <span class="pre">-p</span> <span class="pre">Ocaml</span> <span class="pre">linear_div_fn.adb</span> <span class="pre">~/o.ocaml</span></tt></p>
+<ul class="simple">
+<li>this command calls the Program Translator to translate Spark/Ada program <tt class="docutils literal"><span class="pre">linear_div_fn.ada</span></tt> into Ocaml program and write the results into <tt class="docutils literal"><span class="pre">o.ocaml</span></tt> under the user home directory</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Consider a simple Spark example that is available at:</p>
+<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb</a></p>
+<p>Below are the generated program definitions by the Bakar Jago Program Translator:</p>
+<ul class="simple">
+<li>Coq: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.jago">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.jago</a></li>
+<li>OCaml: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.ocaml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.ocaml</a></li>
+</ul>
+<p>In the generated OCaml or Coq representations,
+the Spark program is translated into a <tt class="docutils literal"><span class="pre">CompilationUnit</span></tt>
+data structure as defined in
+<a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml">OCaml AST type</a>
+or <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq">Coq AST type</a>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">CompilationUnit</span></tt> consists of three elements:<ul>
+<li>the <tt class="docutils literal"><span class="pre">nat</span></tt> number <tt class="docutils literal"><span class="pre">1</span></tt> is the AST number for the compilation unit node –
+procedure body</li>
+<li>the <tt class="docutils literal"><span class="pre">UnitDecl</span></tt> structure represents the procedure body declaration</li>
+<li>the data structure <tt class="docutils literal"><span class="pre">tt_exptype_table</span></tt> and <tt class="docutils literal"><span class="pre">tt_typename_table</span></tt> are the type table for
+expressions referred to in the compilation unit</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">UnitDecl</span></tt> consists of:<ul>
+<li>AST number <tt class="docutils literal"><span class="pre">2</span></tt> for the procedure body declaration AST node</li>
+<li><tt class="docutils literal"><span class="pre">Sproc</span></tt> for the procedure body declaration</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Sproc</span></tt> represents the procedure, and
+<tt class="docutils literal"><span class="pre">Sfunc</span></tt> represents the function.</p>
+<blockquote>
+<div><p>For the procedure defined by <tt class="docutils literal"><span class="pre">Sproc</span></tt>, it’s a <tt class="docutils literal"><span class="pre">procedure_body</span></tt> labled with a AST number,
+and <tt class="docutils literal"><span class="pre">procedure_body</span></tt> consists of:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">proc_astnum</span></tt> is the procedure’s AST number</li>
+<li><tt class="docutils literal"><span class="pre">proc_name</span></tt> is the procedure name</li>
+<li><tt class="docutils literal"><span class="pre">proc_specs</span></tt> defines the aspect specification
+(for example <tt class="docutils literal"><span class="pre">Pre</span></tt> or <tt class="docutils literal"><span class="pre">Post</span></tt>) for the procedure</li>
+<li><tt class="docutils literal"><span class="pre">proc_params</span></tt> defines a list of parameters</li>
+<li><tt class="docutils literal"><span class="pre">proc_loc_idents</span></tt> declares a list of local variables used in the procedure</li>
+<li><tt class="docutils literal"><span class="pre">proc_body</span></tt> is the procedure body, which consists of a sequence of statements</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Each assignment is constructed with <tt class="docutils literal"><span class="pre">Sassign</span></tt>.</p>
+<p>For example, assignment <tt class="docutils literal"><span class="pre">Remainder</span> <span class="pre">:=</span> <span class="pre">Dividend</span></tt> will be translated into the following
+OCaml program:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">Sassign</span> <span class="pre">(13,</span> <span class="pre">(*Remainder*)</span> <span class="pre">4,</span> <span class="pre">Evar</span> <span class="pre">(14,</span> <span class="pre">(*Dividend*)</span> <span class="pre">1))</span></tt></p>
+</div></blockquote>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">13</span></tt> is the AST number for the assignment statement</li>
+<li><tt class="docutils literal"><span class="pre">4</span></tt> is the identifier number for left-hand side variable <tt class="docutils literal"><span class="pre">Remainder</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">14</span></tt> is the AST number for the variable expression <tt class="docutils literal"><span class="pre">Dividend</span></tt>, which is
+represented with identifier number <tt class="docutils literal"><span class="pre">1</span></tt></li>
+</ul>
+</li>
+<li><p class="first">Loop Invariant is defined as a statement and it’s represented with <tt class="docutils literal"><span class="pre">Sloopinvariant</span></tt>,
+which is only allowed to appear in the loop.</p>
+</li>
+<li><p class="first">The type table for the package body is a record, which consists of two fields:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">tt_exptype_table</span></tt> is a type table that maps the expression AST number to its type number</li>
+<li><tt class="docutils literal"><span class="pre">tt_typename_table</span></tt> is a type table that maps the type number to the type
+URI and the AST number declaring it if it is a user defined type.
+<tt class="docutils literal"><span class="pre">Integer</span></tt> and <tt class="docutils literal"><span class="pre">Boolean</span></tt> are standard types, so there is no declaring
+AST number (hence, <tt class="docutils literal"><span class="pre">None</span></tt> for its declaring AST number).</li>
+</ul>
+<p>For example, the pair <tt class="docutils literal"><span class="pre">(47,</span> <span class="pre">1)</span></tt> in <tt class="docutils literal"><span class="pre">tt_exptype_table</span></tt> indicates the expression
+AST node numbered <tt class="docutils literal"><span class="pre">47</span></tt>, which is <tt class="docutils literal"><span class="pre">Remainder</span> <span class="pre">-</span> <span class="pre">Divisor</span></tt>, has the type <tt class="docutils literal"><span class="pre">1</span></tt>.
+According to <tt class="docutils literal"><span class="pre">tt_typename_table</span></tt>, <tt class="docutils literal"><span class="pre">1</span></tt> is an <tt class="docutils literal"><span class="pre">Integer</span></tt> defined in
+<tt class="docutils literal"><span class="pre">Standard</span></tt>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span id="document-alir/alir"></span><div class="section" id="alir">
+<h2>Alir<a class="headerlink" href="#alir" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<span id="document-kiasan/kiasan"></span><div class="section" id="kiasan">
+<h2>Kiasan<a class="headerlink" href="#kiasan" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<span id="document-gps/gps"></span><div class="section" id="gnat-programming-studio-gps-plugins">
+<h2>GNAT Programming Studio (GPS) Plugins<a class="headerlink" href="#gnat-programming-studio-gps-plugins" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-contact admonition">
+<p class="first admonition-title">Contact</p>
+<p class="last"><a class="reference external" href="mailto:jjedrys&#37;&#52;&#48;k-state&#46;edu">Jakub Jedryszek</a></p>
+</div>
+<div class="section" id="bakar-gps-kiasan-plugin">
+<h3>Bakar GPS Kiasan plugin<a class="headerlink" href="#bakar-gps-kiasan-plugin" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="requirements">
+<h4>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Sireum installed</li>
+<li>Sireum features installed:<ul>
+<li>BakarDev</li>
+<li>BakarV1</li>
+<li>SireumDev</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="quick-setup">
+<h4>Quick setup<a class="headerlink" href="#quick-setup" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Pull sireum-bakar-gps project from assembla repository.</li>
+<li>Create soft links in gnat/share/gps/plug-ins/ directory:<ul>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/sireum.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/sireum.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/email</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/email</span></tt></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="manual-setup">
+<h4>Manual setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Pull sireum-bakar-gps project from assembla repository.</li>
+<li>Copy following files to gnat/share/gps/plug-ins/ directory:<ul>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/sireum.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/sireum.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/simplejson</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/simplejson</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/gpshelper.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/gpshelper.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/gui.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/gui.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/logic.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/logic.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/models.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/models.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/email</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/email</span></tt></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="usage">
+<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Open some SPARK project (e.g.: <tt class="docutils literal"><span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/test/test_projects/test_proj1/test_proj1.gpr</span></tt>)</li>
+<li>Build: Build -&gt; Project -&gt; Build All (or just click icon &#8216;build all&#8217; in GPS tool bar)</li>
+<li>Run Kiasan plugin (2 alternatives):<ul>
+<li>Rightclick on package or subprogram name, and choose: Sireum -&gt; Run Kiasan</li>
+<li>Put cursor on package or subprogram name, and choose from program menu: Sireum -&gt; Run Kiasan</li>
+</ul>
+</li>
+<li>Double click on package/subprogram will highlight lines</li>
+<li>Double click on subprogram will load execution cases</li>
+</ol>
+</div>
+<div class="section" id="preferences">
+<h4>Preferences<a class="headerlink" href="#preferences" title="Permalink to this headline">¶</a></h4>
+<p>To change Kiasan plugin preferences go to: Edit -&gt; Preferences -&gt; Sireum -&gt; Kiasan</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">Sireum Bakar v2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Jason Belt, Zhi Zhang, Jakub Jedryszek, Robby, Kansas State University.
+    
+    </div>
+  </body>
+</html>
