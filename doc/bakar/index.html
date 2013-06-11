@@ -113,7 +113,7 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body"><a class="reference external" href="http://santoslab.org">SAnToS Laboratory</a>, <a class="reference external" href="http://www.k-state.edu">Kansas State University</a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">last updated:</th><td class="field-body">May 02, 2013; 12:11 PM</td>
+<tr class="field-even field"><th class="field-name">last updated:</th><td class="field-body">June 11, 2013; 02:43 PM</td>
 </tr>
 </tbody>
 </table>
@@ -142,7 +142,7 @@ and can be extended to build various kinds of software static analyzers.</p>
 <div class="section" id="setting-up-development-environment">
 <h3>Setting up Development Environment<a class="headerlink" href="#setting-up-development-environment" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first">Download and install Sireum (the Development or Stable version) by following the instructions at: <a class="reference external" href="http://www.sireum.org/download">http://www.sireum.org/download</a>.</p>
+<li><p class="first">Download and install Sireum (<em>development</em> release) by following the instructions at: <a class="reference external" href="http://www.sireum.org/download">http://www.sireum.org/download</a>.</p>
 </li>
 <li><p class="first">Launch <a class="reference external" href="http://www.sireum.org/features">Sireum Development Environment (DE)</a>
 (add <tt class="docutils literal"><span class="pre">-h</span></tt> for help to supply custom Eclipse command-line arguments such
@@ -386,79 +386,20 @@ for analyzing Spark/Ada program.</li>
 <li><tt class="docutils literal"><span class="pre">Output</span> <span class="pre">file</span></tt> denotes the target file where the translated objects are written into. The translation results are printed in console if <tt class="docutils literal"><span class="pre">Output</span> <span class="pre">file</span></tt> is not supplied</li>
 </ul>
 <p><strong>Examples</strong>:</p>
-<ul>
-<li><p class="first">set up the tool</p>
-<ul>
-<li><p class="first">build gnat2xml</p>
-<ol class="arabic simple">
-<li>Download the latest wavefront version of ASIS and GNAT Pro from AdaCore.</li>
-</ol>
-<blockquote>
-<div><p>The versions we used for this documentation are:</p>
-<blockquote>
-<div><ul class="simple">
-<li>ASIS: asis-7.2.0w-20130331-src</li>
-<li>GNAT PRO<ul>
-<li>Windows: gnatpro-7.2.0w-20130331-47-i686-pc-mingw32-bin</li>
-<li>Mac: gnatpro-7.2.0w-20130331-47-x86_64-apple-darwin10.8.0-bin</li>
-<li>Linux: gnatpro-7.2.0w-20130331-47-x86_64-pc-linux-gnu-bin</li>
-</ul>
-</li>
-</ul>
-</div></blockquote>
-</div></blockquote>
-<ol class="arabic" start="2">
-<li><p class="first">Download our customized Gnat2XML from <a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git-2/nodes">https://www.assembla.com/code/sireum-bakar/git-2/nodes</a>.
-Use the customized Gnat2XML to replace the one under asis-7.2.0w-20130331-src/toos/gnat2xml</p>
-</li>
-<li><p class="first">Refer to the following links for building gnat2xml under Linux, Mac and Windows:</p>
-<blockquote>
-<div><ul>
-<li><p class="first">Compile gnat2xml in Linux:</p>
-<p><a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20121129-ksu-linux-build-notes.txt">https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20121129-ksu-linux-build-notes.txt</a></p>
-</li>
-<li><p class="first">Compile gnat2xml in Mac:</p>
-<p><a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130411-ksu-macos-build-notes.txt">https://www.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130411-ksu-macos-build-notes.txt</a></p>
-</li>
-<li><p class="first">Compile gnat2xml in Windows:</p>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130430-ksu.win64-build-notes.txt">https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master/doc/README-20130430-ksu.win64-build-notes.txt</a></p>
-</li>
-</ul>
-</div></blockquote>
-</li>
-</ol>
-</li>
-<li><p class="first">set PATH environment variable to include gnat2xml</p>
-<p>Assume that <tt class="docutils literal"><span class="pre">GNATBUNDLE_HOME</span></tt> denotes the directory where <tt class="docutils literal"><span class="pre">gnat2xml</span></tt> is installed.</p>
-<blockquote>
-<div><p><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=GNATBUNDLE_HOME/bin/:$PATH</span></tt></p>
-<p>(or in Windows: <tt class="docutils literal"><span class="pre">set</span> <span class="pre">PATH=GNATBUNDLE_HOME\bin;%PATH%</span></tt>)</p>
-</div></blockquote>
-</li>
-<li><p class="first">now it&#8217;s ready to run the Jago tool for type/program translation</p>
-<p>In case of errors like: <tt class="docutils literal"><span class="pre">'scala'</span> <span class="pre">or</span> <span class="pre">'java'</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">recognized</span></tt></p>
-<p>$ set PATH=SIREUM_HOME/apps/platform/scala/bin:SIREUM_HOME/apps/platform/java/bin:$PATH</p>
-<p>(in windows: set PATH=SIREUM_HOME\apps\platform\scalabin;SIREUM_HOME\apps\platform\java\bin;%PATH%)</p>
-</li>
-</ul>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Coq</span></tt>  (in Windows: <tt class="docutils literal"><span class="pre">sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Coq</span></tt>)</p>
 <ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Coq</span></tt>  (in Windows: <tt class="docutils literal"><span class="pre">sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Coq</span></tt>)<ul>
 <li>this command calls the Type Translator to generate Coq type definitions for Ada XML schema and print the results on console</li>
 </ul>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Ocaml</span> <span class="pre">typ.ocaml</span></tt></p>
-<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">type</span> <span class="pre">-t</span> <span class="pre">Ocaml</span> <span class="pre">typ.ocaml</span></tt><ul>
 <li>this command calls the Type Translator to generate Ocaml type definitions for Ada XML schema and write the results in <tt class="docutils literal"><span class="pre">typ.ocaml</span></tt></li>
 </ul>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">program</span> <span class="pre">-p</span> <span class="pre">Coq</span> <span class="pre">linear_div_fn.adb</span></tt></p>
-<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">program</span> <span class="pre">-p</span> <span class="pre">Coq</span> <span class="pre">linear_div_fn.adb</span></tt><ul>
 <li>this command calls the Program Translator to generate Coq objects for Spark/Ada program <tt class="docutils literal"><span class="pre">linear_div_fn.adb</span></tt> and print the results on console</li>
 </ul>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">program</span> <span class="pre">-p</span> <span class="pre">Ocaml</span> <span class="pre">linear_div_fn.adb</span> <span class="pre">~/o.ocaml</span></tt></p>
-<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./sireum</span> <span class="pre">bakar</span> <span class="pre">program</span> <span class="pre">-p</span> <span class="pre">Ocaml</span> <span class="pre">linear_div_fn.adb</span> <span class="pre">~/o.ocaml</span></tt><ul>
 <li>this command calls the Program Translator to translate Spark/Ada program <tt class="docutils literal"><span class="pre">linear_div_fn.ada</span></tt> into Ocaml program and write the results into <tt class="docutils literal"><span class="pre">o.ocaml</span></tt> under the user home directory</li>
 </ul>
 </li>
@@ -580,9 +521,9 @@ According to <tt class="docutils literal"><span class="pre">tt_typename_table</s
 <ol class="arabic simple">
 <li>Pull sireum-bakar-gps project from assembla repository.</li>
 <li>Create soft links in gnat/share/gps/plug-ins/ directory:<ul>
-<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/sireum.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/sireum.py</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/email</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/email</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/sireum.py</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/sireum.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/kiasan</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/email</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/email</span></tt></li>
 </ul>
 </li>
 </ol>
@@ -592,13 +533,13 @@ According to <tt class="docutils literal"><span class="pre">tt_typename_table</s
 <ol class="arabic simple">
 <li>Pull sireum-bakar-gps project from assembla repository.</li>
 <li>Copy following files to gnat/share/gps/plug-ins/ directory:<ul>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/sireum.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/sireum.py</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/simplejson</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/simplejson</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/gpshelper.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/gpshelper.py</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/gui.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/gui.py</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/logic.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/logic.py</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/models.py</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/kiasan/models.py</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/email</span> <span class="pre">$YOUR_GPS_DIR/gnat/share/gps/plug-ins/email</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/sireum.py</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/sireum.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/simplejson</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/kiasan/simplejson</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/gpshelper.py</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/kiasan/gpshelper.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/gui.py</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/kiasan/gui.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/logic.py</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/kiasan/logic.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/kiasan/models.py</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/kiasan/models.py</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cp</span> <span class="pre">$YOUR_WORKSPACE/sireum-bakar/sireum-bakar-gps/src/email</span> <span class="pre">$YOUR_GNAT_DIR/share/gps/plug-ins/email</span></tt></li>
 </ul>
 </li>
 </ol>
