@@ -61,6 +61,11 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-formalization/spark2014-semantics">Formalization for SPARK 2014 Subset in Coq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#formalization-in-coq">Formalization in Coq</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-alir/alir">Alir</a><ul class="simple">
 </ul>
 </li>
@@ -113,7 +118,7 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body"><a class="reference external" href="http://santoslab.org">SAnToS Laboratory</a>, <a class="reference external" href="http://www.k-state.edu">Kansas State University</a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">last updated:</th><td class="field-body">June 11, 2013; 02:43 PM</td>
+<tr class="field-even field"><th class="field-name">last updated:</th><td class="field-body">November 07, 2013; 10:20 AM</td>
 </tr>
 </tbody>
 </table>
@@ -133,9 +138,9 @@ CAREER award <a class="reference external" href="http://www.nsf.gov/awardsearch/
 </div>
 <span id="document-sireum_platform/sireum_platform"></span><div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-core/git/nodes">Sireum Core repository</a>
+<p><a class="reference external" href="https://github.com/sireum/core">Sireum Core repository</a>
 stores some of the core components of the Sireum (v2) software analysis platform.</p>
-<p><a class="reference external" href="https://www.assembla.com/code/sireum-bakar/git/nodes">Sireum Bakar repository</a>
+<p><a class="reference external" href="https://github.com/sireum/bakar">Sireum Bakar repository</a>
 stores various Spark/Ada translation tools and source code analysis and verification tools,
 which are built on top of Sireum Core components. It provides a useful development platform
 and can be extended to build various kinds of software static analyzers.</p>
@@ -162,14 +167,19 @@ dialog box. You can correct this issue by setting SVN Interface Client to
 </li>
 <li><p class="first">Import all projects in:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes">Sireum Core Prelude Repo</a><ul>
-<li>read-only: <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-core.prelude.git</span></tt></li>
-<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;git.assembla.com:sireum-core.prelude.git</span></tt></li>
+<li><a class="reference external" href="https://github.com/sireum/prelude">Sireum Core Prelude Repo</a><ul>
+<li>read-only: <tt class="docutils literal"><span class="pre">https://github.com/sireum/prelude.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;github.com:sireum/prelude.git</span></tt></li>
 </ul>
 </li>
-<li><a class="reference external" href="https://www.assembla.com/code/sireum-core/git/nodes">Sireum Core Repo</a><ul>
-<li>read-only: <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-core.git</span></tt></li>
-<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;git.assembla.com:sireum-core.git</span></tt></li>
+<li><a class="reference external" href="https://github.com/sireum/parser">Sireum Parser Repo</a><ul>
+<li>read-only: <tt class="docutils literal"><span class="pre">https://github.com/sireum/parser.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;github.com:sireum/parser.git</span></tt></li>
+</ul>
+</li>
+<li><a class="reference external" href="https://github.com/sireum/core">Sireum Core Repo</a><ul>
+<li>read-only: <tt class="docutils literal"><span class="pre">https://github.com/sireum/core.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;github.com:sireum/core.git</span></tt></li>
 </ul>
 </li>
 </ul>
@@ -182,11 +192,11 @@ and selecting <tt class="docutils literal"><span class="pre">Run</span> <span cl
 respective Eclipse preference pages:</p>
 <ul class="simple">
 <li>In <a class="reference external" href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fcodestyle%2Fref-preferences-cleanup.htm">Java -&gt; Code Style -&gt; Clean Up preference page</a>:
-<a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes/master/sireum-util/codestyle/java-clean-up.xml">sireum-core.prelude/sireum-util/codestyle/java-clean-up.xml</a></li>
+<a class="reference external" href="https://github.com/sireum/prelude/tree/master/sireum-util/codestyle/java-clean-up.xml">sireum-core.prelude/sireum-util/codestyle/java-clean-up.xml</a></li>
 <li>In <a class="reference external" href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fcodestyle%2Fref-preferences-formatter.htm">Java -&gt; Code Style -&gt; Formatter preference page</a>:
-<a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes/master/sireum-util/codestyle/java-formatter.xml">sireum-core.prelude/sireum-util/codestyle/java-formatter.xml</a></li>
+<a class="reference external" href="https://github.com/sireum/prelude/tree/master/sireum-util/codestyle/java-formatter.xml">sireum-core.prelude/sireum-util/codestyle/java-formatter.xml</a></li>
 <li>In <a class="reference external" href="http://scala-ide.org/docs/current-user-doc/features/typingviewing/formatting/index.html">Scala -&gt; Formatter preference page</a>:
-<a class="reference external" href="https://www.assembla.com/code/sireum-core/git-3/nodes/master/sireum-util/codestyle/scala-formatterPreferences.properties">sireum-core.prelude/sireum-util/codestyle/scala-formatterPreferences.properties</a></li>
+<a class="reference external" href="https://github.com/sireum/prelude/tree/master/sireum-util/codestyle/scala-formatterPreferences.properties">sireum-core.prelude/sireum-util/codestyle/scala-formatterPreferences.properties</a></li>
 </ul>
 <p>Make sure to run Java source clean up before committing Java code.
 Similarly, make sure to run Scala formatter before committing Scala code.</p>
@@ -197,8 +207,8 @@ Similarly, make sure to run Scala formatter before committing Scala code.</p>
 <h3>Sireum Bakar Tool Sets<a class="headerlink" href="#sireum-bakar-tool-sets" title="Permalink to this headline">¶</a></h3>
 <p>Import Sireum Bakar projects at:</p>
 <ul class="simple">
-<li>read-only: <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-bakar.git</span></tt></li>
-<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;git.assembla.com:sireum-bakar.git</span></tt></li>
+<li>read-only: <tt class="docutils literal"><span class="pre">https://github.com/sireum/bakar.git</span></tt></li>
+<li>read-write: <tt class="docutils literal"><span class="pre">git&#64;github.com:sireum/bakar.git</span></tt></li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -206,7 +216,7 @@ Similarly, make sure to run Scala formatter before committing Scala code.</p>
 Click the following Eclipse menus:
 <tt class="docutils literal"><span class="pre">Window</span></tt> &gt; <tt class="docutils literal"><span class="pre">Show</span> <span class="pre">View</span></tt> &gt; <tt class="docutils literal"><span class="pre">Other...</span></tt> &gt; <tt class="docutils literal"><span class="pre">Git</span></tt> &gt; <tt class="docutils literal"><span class="pre">Git</span> <span class="pre">Repositories</span></tt>, select
 <tt class="docutils literal"><span class="pre">Clone</span> <span class="pre">a</span> <span class="pre">Git</span> <span class="pre">Repository</span> <span class="pre">and</span> <span class="pre">add</span> <span class="pre">the</span> <span class="pre">clone</span> <span class="pre">to</span> <span class="pre">this</span> <span class="pre">view</span></tt>, and then put the
-git location, for example <tt class="docutils literal"><span class="pre">git://git.assembla.com/sireum-bakar.git</span></tt>, at URI.
+git location, for example <tt class="docutils literal"><span class="pre">https://github.com/sireum/bakar.git</span></tt>, at URI.
 Finally, unfold the Git repository and right click <tt class="docutils literal"><span class="pre">Working</span> <span class="pre">Directory</span></tt> and choose
 <tt class="docutils literal"><span class="pre">Imports</span> <span class="pre">Projects...</span></tt> to import all projects under the Git repository into current
 Eclipse working space.</p>
@@ -241,11 +251,10 @@ XML representation of Ada programs retains the following information:</p>
 <li>Location information</li>
 </ol>
 <p>The most recent generated schema (with KSU patches) can be found at:</p>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/gnatxml.xsd">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/gnatxml.xsd</a></p>
+<p><a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-xml/src/main/resources/gnatxml.xsd">https://github.com/sireum/bakar/blob/master/sireum-bakar-xml/src/main/resources/gnatxml.xsd</a></p>
 <p>The gnat2xml source code is available at:</p>
 <ul class="simple">
-<li>KSU branch: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master">https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master</a></li>
-<li>Inital AdaCore versionh: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/adacore">https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/adacore</a></li>
+<li>KSU branch: <a class="reference external" href="https://github.com/sireum/bakar-gnat2xml">https://github.com/sireum/bakar-gnat2xml</a></li>
 </ul>
 <p>The initial version of gnat2xml is developed by AdaCore, Inc. as a sub-contract
 of Kansas State University&#8217;s U.S. Air Force Office of Scientific Research
@@ -263,9 +272,9 @@ the Java Architecture for XML Binding (JAXB &#8211; <a class="reference external
 which is a part of the Java Standard Development Kit.</p>
 <p>To fine-tune JAXB generated Java classes, we developed a custom JAXB binding,
 which can be found at:</p>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/external.xsd">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/resources/external.xsd</a></p>
+<p><a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-xml/src/main/resources/external.xsd">https://github.com/sireum/bakar/blob/master/sireum-bakar-xml/src/main/resources/external.xsd</a></p>
 <p>The generated classes can be found at:</p>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/java/org/sireum/bakar/xml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/java/org/sireum/bakar/xml</a></p>
+<p><a class="reference external" href="https://github.com/sireum/bakar/tree/master/sireum-bakar-xml/src/main/java/org/sireum/bakar/xml">https://github.com/sireum/bakar/tree/master/sireum-bakar-xml/src/main/java/org/sireum/bakar/xml</a></p>
 <p>By using the JAXB runtime library, gnat2xml-generated Ada XML representations
 can be directly loaded as Java objects (instances of the Java classes generated
 by  using JAXB).</p>
@@ -282,7 +291,7 @@ The main purpose is to be enable pattern matching of Ada JAXB Java objects.
 The translator uses Java reflection on JAXB generated Java classes in order to
 generate the extractors.</p>
 <p>The generated extractors are available at:</p>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/scala/org/sireum/bakar/xml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-xml/src/main/scala/org/sireum/bakar/xml</a></p>
+<p><a class="reference external" href="https://github.com/sireum/bakar/tree/master/sireum-bakar-xml/src/main/scala/org/sireum/bakar/xml">https://github.com/sireum/bakar/tree/master/sireum-bakar-xml/src/main/scala/org/sireum/bakar/xml</a></p>
 </div>
 <span id="document-translator/jago/jago"></span><div class="section" id="jago-coq-and-ocaml-targets">
 <h3>Jago: Coq and OCaml Targets<a class="headerlink" href="#jago-coq-and-ocaml-targets" title="Permalink to this headline">¶</a></h3>
@@ -299,7 +308,7 @@ Coq and OCaml code that constructs the AST.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The Jago translation toolset currently handles a
-<a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-jago/src/main/resources/org/sireum/bakar/subset/SPARK_2014_Subset">subset of SPARK 2014</a>.
+<a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-jago/src/main/resources/org/sireum/bakar/subset/SPARK_2014_Subset">subset of SPARK 2014</a>.
 Pre/Post aspects are not handled as the GNAT toolset version for the initial
 gnat2xml tool does not allow contracts to be attached directly to subprogram
 bodies.</p>
@@ -336,8 +345,8 @@ configuration to represent native types such as <tt class="docutils literal"><sp
 </ol>
 <p>The generated type definitions are avaiable at:</p>
 <ul class="simple">
-<li>Coq: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq</a></li>
-<li>OCaml: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml</a></li>
+<li>Coq: <a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq">https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq</a></li>
+<li>OCaml: <a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml">https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml</a></li>
 </ul>
 </div>
 <div class="section" id="program-translator">
@@ -408,54 +417,58 @@ for analyzing Spark/Ada program.</li>
 <div class="section" id="example">
 <h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
 <p>Consider a simple Spark example that is available at:</p>
-<p><a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb</a></p>
+<p><a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb">https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb</a></p>
 <p>Below are the generated program definitions by the Bakar Jago Program Translator:</p>
 <ul class="simple">
-<li>Coq: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.jago">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.jago</a></li>
-<li>OCaml: <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.ocaml">https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.ocaml</a></li>
+<li>Coq: <a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.jago">https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.jago</a></li>
+<li>OCaml: <a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.ocaml">https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/jago_linear_div_with_loopinvariant.smf.ocaml</a></li>
 </ul>
-<p>In the generated OCaml or Coq representations,
+<p>In the generated Coq or OCaml representations,
 the Spark program is translated into a <tt class="docutils literal"><span class="pre">CompilationUnit</span></tt>
 data structure as defined in
-<a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml">OCaml AST type</a>
-or <a class="reference external" href="https://sireum.assembla.com/code/sireum-bakar/git/nodes/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq">Coq AST type</a>.</p>
+<a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.coq">Coq AST type</a>
+or <a class="reference external" href="https://github.com/sireum/bakar/blob/master/sireum-bakar-test/src/test/resources/org/sireum/test/bakar/jago/expected/typ.ocaml">OCaml AST type</a>.
+Take the Coq representations as example:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">CompilationUnit</span></tt> consists of three elements:<ul>
-<li>the <tt class="docutils literal"><span class="pre">nat</span></tt> number <tt class="docutils literal"><span class="pre">1</span></tt> is the AST number for the compilation unit node –
-procedure body</li>
-<li>the <tt class="docutils literal"><span class="pre">UnitDecl</span></tt> structure represents the procedure body declaration</li>
+<li><tt class="docutils literal"><span class="pre">Library_Unit</span></tt> consists of three elements:<ul>
+<li>the <tt class="docutils literal"><span class="pre">nat</span></tt> number <tt class="docutils literal"><span class="pre">1</span></tt> is its AST number</li>
+<li>the <tt class="docutils literal"><span class="pre">Libray_Subprogram</span></tt> structure represents the procedure body declaration</li>
 <li>the data structure <tt class="docutils literal"><span class="pre">tt_exptype_table</span></tt> and <tt class="docutils literal"><span class="pre">tt_typename_table</span></tt> are the type table for
 expressions referred to in the compilation unit</li>
 </ul>
 </li>
-<li><tt class="docutils literal"><span class="pre">UnitDecl</span></tt> consists of:<ul>
-<li>AST number <tt class="docutils literal"><span class="pre">2</span></tt> for the procedure body declaration AST node</li>
-<li><tt class="docutils literal"><span class="pre">Sproc</span></tt> for the procedure body declaration</li>
+<li><tt class="docutils literal"><span class="pre">Library_Subprogram</span></tt> consists of:<ul>
+<li>its AST number <tt class="docutils literal"><span class="pre">2</span></tt>, and</li>
+<li>procedure body declaration represented as <tt class="docutils literal"><span class="pre">Procedure</span></tt> structure</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">Procedure</span></tt> consists of:<ul>
+<li>its AST number <tt class="docutils literal"><span class="pre">3</span></tt></li>
+<li>the procedure body declaration with a record</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p class="first"><tt class="docutils literal"><span class="pre">Sproc</span></tt> represents the procedure, and
-<tt class="docutils literal"><span class="pre">Sfunc</span></tt> represents the function.</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Procedure</span></tt> represents the procedure, and
+<tt class="docutils literal"><span class="pre">Function</span></tt> represents the function.</p>
 <blockquote>
-<div><p>For the procedure defined by <tt class="docutils literal"><span class="pre">Sproc</span></tt>, it’s a <tt class="docutils literal"><span class="pre">procedure_body</span></tt> labled with a AST number,
-and <tt class="docutils literal"><span class="pre">procedure_body</span></tt> consists of:</p>
+<div><p>For the procedure defined by <tt class="docutils literal"><span class="pre">Procedure</span></tt>, it consists of:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">proc_astnum</span></tt> is the procedure’s AST number</li>
-<li><tt class="docutils literal"><span class="pre">proc_name</span></tt> is the procedure name</li>
-<li><tt class="docutils literal"><span class="pre">proc_specs</span></tt> defines the aspect specification
+<li><tt class="docutils literal"><span class="pre">procedure_astnum</span></tt> is the procedure’s AST number</li>
+<li><tt class="docutils literal"><span class="pre">procedure_name</span></tt> is the procedure name</li>
+<li><tt class="docutils literal"><span class="pre">procedure_contracts</span></tt> defines the aspect specification
 (for example <tt class="docutils literal"><span class="pre">Pre</span></tt> or <tt class="docutils literal"><span class="pre">Post</span></tt>) for the procedure</li>
-<li><tt class="docutils literal"><span class="pre">proc_params</span></tt> defines a list of parameters</li>
-<li><tt class="docutils literal"><span class="pre">proc_loc_idents</span></tt> declares a list of local variables used in the procedure</li>
-<li><tt class="docutils literal"><span class="pre">proc_body</span></tt> is the procedure body, which consists of a sequence of statements</li>
+<li><tt class="docutils literal"><span class="pre">procedure_parameter_profile</span></tt> defines a list of parameters</li>
+<li><tt class="docutils literal"><span class="pre">procedure_declarative_part</span></tt> declares a list of local variables used in the procedure</li>
+<li><tt class="docutils literal"><span class="pre">procedure_statements</span></tt> is the procedure body, which consists of a sequence of statements</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Each assignment is constructed with <tt class="docutils literal"><span class="pre">Sassign</span></tt>.</p>
+<li><p class="first">Each assignment is constructed with <tt class="docutils literal"><span class="pre">S_Assignment</span></tt>.</p>
 <p>For example, assignment <tt class="docutils literal"><span class="pre">Remainder</span> <span class="pre">:=</span> <span class="pre">Dividend</span></tt> will be translated into the following
 OCaml program:</p>
 <blockquote>
-<div><p><tt class="docutils literal"><span class="pre">Sassign</span> <span class="pre">(13,</span> <span class="pre">(*Remainder*)</span> <span class="pre">4,</span> <span class="pre">Evar</span> <span class="pre">(14,</span> <span class="pre">(*Dividend*)</span> <span class="pre">1))</span></tt></p>
+<div><p><tt class="docutils literal"><span class="pre">S_Assignment</span> <span class="pre">(13,</span> <span class="pre">(*Remainder*)</span> <span class="pre">4,</span> <span class="pre">Evar</span> <span class="pre">(14,</span> <span class="pre">(*Dividend*)</span> <span class="pre">1))</span></tt></p>
 </div></blockquote>
 <p>where:</p>
 <ul class="simple">
@@ -465,7 +478,7 @@ OCaml program:</p>
 represented with identifier number <tt class="docutils literal"><span class="pre">1</span></tt></li>
 </ul>
 </li>
-<li><p class="first">Loop Invariant is defined as a statement and it’s represented with <tt class="docutils literal"><span class="pre">Sloopinvariant</span></tt>,
+<li><p class="first">Loop Invariant is defined as a statement and it’s represented with <tt class="docutils literal"><span class="pre">S_Loop_Invariant</span></tt>,
 which is only allowed to appear in the loop.</p>
 </li>
 <li><p class="first">The type table for the package body is a record, which consists of two fields:</p>
@@ -484,6 +497,42 @@ According to <tt class="docutils literal"><span class="pre">tt_typename_table</s
 </ul>
 </div>
 </div>
+</div>
+</div>
+<span id="document-formalization/spark2014-semantics"></span><div class="section" id="formalization-for-spark-2014-subset-in-coq">
+<h2>Formalization for SPARK 2014 Subset in Coq<a class="headerlink" href="#formalization-for-spark-2014-subset-in-coq" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>We present the first steps of a broad effort to develop a formal representation
+of SPARK 2014 suitable for supporting machine-verified static analyses and
+translations. In our initial work, we have developed technology (Jago) for translating
+the GNAT compiler’s abstract syntax trees into the Coq proof assistant, and we have
+formalized in Coq the dynamic semantics for a toy subset of the SPARK 2014 language.
+SPARK 2014 programs must ensure the absence of certain run-time errors (for example,
+those arising while performing division by zero, accessing non existing array cells,
+overflow on integer computation). The main novelty in our semantics is the encoding
+of (a small part of) the run-time checks performed by the compiler to ensure that any
+well-formed terminating SPARK programs do not lead to erroneous execution. This and
+other results are mechanically proved using the Coq proof assistant. The modeling of
+on-the-fly run-time checks within the semantics lays the foundation for future work
+on mechanical reasoning about SPARK 2014 program correctness (in the particular area
+of robustness) and for studying the correctness of compiler optimizations concerning
+run-time checks, among others.</p>
+</div>
+<div class="section" id="formalization-in-coq">
+<h3>Formalization in Coq<a class="headerlink" href="#formalization-in-coq" title="Permalink to this headline">¶</a></h3>
+<p>For Coq development:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/sireum/bakar/tree/master/sireum-bakar-formalization">https://github.com/sireum/bakar/tree/master/sireum-bakar-formalization</a></li>
+</ul>
+</div></blockquote>
+<p>For the presentation in HILT&#8216;13:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://forge.open-do.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=spark2014/spark2014.git;a=blob;f=language_formal/papers/hilt2013/HILT2013_Presentation.pdf;h=bdd99a09b7eea56d2049fb443571bdaff6abe741;hb=e96bcdb2dfa8899063fac2b2509ab61f5f083b5d">HILT&#8216;13 Presentation</a></li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 <span id="document-alir/alir"></span><div class="section" id="alir">
@@ -514,6 +563,7 @@ According to <tt class="docutils literal"><span class="pre">tt_typename_table</s
 <li>SireumDev</li>
 </ul>
 </li>
+<li>If running on Ubuntu: libjpeg 6.2 must be installed (<tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libjpeg62</span></tt>).</li>
 </ol>
 </div>
 <div class="section" id="quick-setup">
