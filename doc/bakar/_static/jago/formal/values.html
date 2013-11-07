@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<link href="coqdoc.css" rel="stylesheet" type="text/css"/>
+<title>values</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">values</h1>
+
+<div class="code">
+<span class="id" type="keyword">Require</span> <span class="id" type="keyword">Export</span> <a class="idref" href="language.html#"><span class="id" type="library">language</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab6"></a><h1 class="section">Value Types</h1>
+
+<div class="paragraph"> </div>
+
+ the range of 32-bit (singed/unsigned) integer type: 
+
+<div class="paragraph"> </div>
+
+<ul class="doclist">
+<li> modulus : 2^32 ;
+
+</li>
+<li> half_modulus : 2^31 ;
+
+</li>
+<li> max_unsigned : 2^32 -1 ;
+
+</li>
+<li> max_signed : 2^31 - 1 ;
+
+</li>
+<li> min_signed : -2^31 ;
+
+</li>
+</ul>
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Definition</span> <a name="wordsize"><span class="id" type="definition">wordsize</span></a>: <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Init.Datatypes.html#nat"><span class="id" type="inductive">nat</span></a> := 32.<br/>
+<span class="id" type="keyword">Definition</span> <a name="modulus"><span class="id" type="definition">modulus</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Numbers.BinNums.html#Z"><span class="id" type="inductive">Z</span></a> := <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zpower.html#two_power_nat"><span class="id" type="definition">two_power_nat</span></a> <a class="idref" href="values.html#wordsize"><span class="id" type="definition">wordsize</span></a>.<br/>
+<span class="id" type="keyword">Definition</span> <a name="half_modulus"><span class="id" type="definition">half_modulus</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Numbers.BinNums.html#Z"><span class="id" type="inductive">Z</span></a> := <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.div"><span class="id" type="definition">Z.div</span></a> <a class="idref" href="values.html#modulus"><span class="id" type="definition">modulus</span></a> 2.<br/>
+<span class="id" type="keyword">Definition</span> <a name="max_unsigned"><span class="id" type="definition">max_unsigned</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Numbers.BinNums.html#Z"><span class="id" type="inductive">Z</span></a> := <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.sub"><span class="id" type="definition">Z.sub</span></a> <a class="idref" href="values.html#modulus"><span class="id" type="definition">modulus</span></a> 1.<br/>
+<span class="id" type="keyword">Definition</span> <a name="max_signed"><span class="id" type="definition">max_signed</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Numbers.BinNums.html#Z"><span class="id" type="inductive">Z</span></a> := <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.sub"><span class="id" type="definition">Z.sub</span></a> <a class="idref" href="values.html#half_modulus"><span class="id" type="definition">half_modulus</span></a> 1.<br/>
+<span class="id" type="keyword">Definition</span> <a name="min_signed"><span class="id" type="definition">min_signed</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Numbers.BinNums.html#Z"><span class="id" type="inductive">Z</span></a> := <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.opp"><span class="id" type="definition">Z.opp</span></a> <a class="idref" href="values.html#half_modulus"><span class="id" type="definition">half_modulus</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Type of basic values
+<div class="paragraph"> </div>
+
+ TODO: now we only model the 32-bit singed integer for SPARK 
+    program, where Coq integer (Z) is used to represent this integer  
+    value with a range bound between min_signed and max_signed. 
+    This integer range constraint is enforced when we define the
+    semantics for the language;
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Inductive</span> <a name="value"><span class="id" type="inductive">value</span></a> : <span class="id" type="keyword">Type</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Int"><span class="id" type="constructor">Int</span></a> (<span class="id" type="var">n</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Numbers.BinNums.html#Z"><span class="id" type="inductive">Z</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Bool"><span class="id" type="constructor">Bool</span></a> (<span class="id" type="var">b</span> : <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Init.Datatypes.html#bool"><span class="id" type="inductive">bool</span></a>).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Type of stored values in the stack 
+</div>
+<div class="code">
+<span class="id" type="keyword">Inductive</span> <a name="val"><span class="id" type="inductive">val</span></a>: <span class="id" type="keyword">Type</span> := <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Value"><span class="id" type="constructor">Value</span></a>: <a class="idref" href="values.html#value"><span class="id" type="inductive">value</span></a> -&gt; <a class="idref" href="values.html#val"><span class="id" type="inductive">val</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Undefined"><span class="id" type="constructor">Undefined</span></a>: <a class="idref" href="values.html#val"><span class="id" type="inductive">val</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Expression evaluation returns one of the following results:
+
+<div class="paragraph"> </div>
+
+<ul class="doclist">
+<li> normal values;
+
+</li>
+<li> run time errors, which are required to be detected at run time,
+      for example, overflow check and division by zero check;
+
+</li>
+<li> abnormal values, which includes compile time errors
+      (for example, type checks failure and undefined variables), 
+      bounded errors and erroneous execution. In the future, 
+      if it's necessary, we would refine the abnormal value into 
+      these more precise categories (1.1.5);
+
+</li>
+</ul>
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Inductive</span> <a name="return_val"><span class="id" type="inductive">return_val</span></a>: <span class="id" type="keyword">Type</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Val_Normal"><span class="id" type="constructor">Val_Normal</span></a>: <a class="idref" href="values.html#value"><span class="id" type="inductive">value</span></a> -&gt; <a class="idref" href="values.html#return_val"><span class="id" type="inductive">return_val</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Val_Run_Time_Error"><span class="id" type="constructor">Val_Run_Time_Error</span></a>: <a class="idref" href="values.html#return_val"><span class="id" type="inductive">return_val</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a>: <a class="idref" href="values.html#return_val"><span class="id" type="inductive">return_val</span></a>.<br/>
+
+<br/>
+<span class="id" type="keyword">Inductive</span> <a name="value_of_type"><span class="id" type="inductive">value_of_type</span></a>: <a class="idref" href="values.html#value"><span class="id" type="inductive">value</span></a> -&gt; <a class="idref" href="language.html#type"><span class="id" type="inductive">type</span></a> -&gt; <span class="id" type="keyword">Prop</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="VT_Int"><span class="id" type="constructor">VT_Int</span></a>: <span class="id" type="keyword">forall</span> <span class="id" type="var">n</span>, <a class="idref" href="values.html#value_of_type"><span class="id" type="inductive">value_of_type</span></a> (<a class="idref" href="values.html#Int"><span class="id" type="constructor">Int</span></a> <a class="idref" href="values.html#n"><span class="id" type="variable">n</span></a>) <a class="idref" href="language.html#Integer"><span class="id" type="constructor">Integer</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a name="VT_Bool"><span class="id" type="constructor">VT_Bool</span></a>: <span class="id" type="keyword">forall</span> <span class="id" type="var">b</span>, <a class="idref" href="values.html#value_of_type"><span class="id" type="inductive">value_of_type</span></a> (<a class="idref" href="values.html#Bool"><span class="id" type="constructor">Bool</span></a> <a class="idref" href="values.html#b"><span class="id" type="variable">b</span></a>) <a class="idref" href="language.html#Boolean"><span class="id" type="constructor">Boolean</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab7"></a><h1 class="section">Value Operations</h1>
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Module</span> <a name="Val"><span class="id" type="module">Val</span></a>.<br/>
+
+<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab8"></a><h2 class="section">Arithmetic operations</h2>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.add"><span class="id" type="definition">add</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> := <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> (<span class="id" type="var">v1'</span> <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#:Z_scope:x_'+'_x"><span class="id" type="notation">+</span></a> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.sub"><span class="id" type="definition">sub</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> := <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> (<span class="id" type="var">v1'</span> <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#:Z_scope:x_'-'_x"><span class="id" type="notation">-</span></a> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.mul"><span class="id" type="definition">mul</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> (<span class="id" type="var">v1'</span> <a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#:Z_scope:x_'*'_x"><span class="id" type="notation">*</span></a> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+map Ada operators to corresponding Coq operators:
+
+<div class="paragraph"> </div>
+
+<ul class="doclist">
+<li> div -&gt; Z.quot
+
+</li>
+<li> rem -&gt; Z.rem
+
+</li>
+<li> mod -&gt; Z.modulo
+
+<div class="paragraph"> </div>
+
+      (Note: Ada "mod" has the following formula in Why:    
+<ul class="doclist">
+<li> if y &gt; 0 then EuclideanDivision.mod x y else EuclideanDivision.mod x y + y)
+
+</li>
+</ul>
+
+</li>
+</ul>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.div"><span class="id" type="definition">div</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> := <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.quot"><span class="id" type="definition">Z.quot</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.rem"><span class="id" type="definition">rem</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> := <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.rem"><span class="id" type="definition">Z.rem</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.mod'"><span class="id" type="definition">mod'</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> := <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.BinInt.html#Z.modulo"><span class="id" type="definition">Z.modulo</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab9"></a><h2 class="section">Logic operations</h2>
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Definition</span> <a name="Val.and"><span class="id" type="definition">and</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Init.Datatypes.html#andb"><span class="id" type="definition">andb</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.or"><span class="id" type="definition">or</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Init.Datatypes.html#orb"><span class="id" type="definition">orb</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab10"></a><h2 class="section">Relational operations</h2>
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Definition</span> <a name="Val.eq"><span class="id" type="definition">eq</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zbool.html#Zeq_bool"><span class="id" type="definition">Zeq_bool</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.ne"><span class="id" type="definition">ne</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zbool.html#Zneq_bool"><span class="id" type="definition">Zneq_bool</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.gt"><span class="id" type="definition">gt</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zbool.html#Zgt_bool"><span class="id" type="abbreviation">Zgt_bool</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.ge"><span class="id" type="definition">ge</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zbool.html#Zge_bool"><span class="id" type="abbreviation">Zge_bool</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.lt"><span class="id" type="definition">lt</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zbool.html#Zlt_bool"><span class="id" type="abbreviation">Zlt_bool</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" type="keyword">Definition</span> <a name="Val.le"><span class="id" type="definition">le</span></a> (<span class="id" type="var">v1</span> <span class="id" type="var">v2</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v1"><span class="id" type="variable">v1</span></a>, <a class="idref" href="values.html#v2"><span class="id" type="variable">v2</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v1'</span>, <a class="idref" href="values.html#Val.Int"><span class="id" type="constructor">Int</span></a> <span class="id" type="var">v2'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.ZArith.Zbool.html#Zle_bool"><span class="id" type="abbreviation">Zle_bool</span></a> <span class="id" type="var">v1'</span> <span class="id" type="var">v2'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span>, <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab11"></a><h2 class="section">Unary operations</h2>
+
+</div>
+<div class="code">
+<span class="id" type="keyword">Definition</span> <a name="Val.not"><span class="id" type="definition">not</span></a> (<span class="id" type="var">v</span>: <a class="idref" href="values.html#Val.value"><span class="id" type="inductive">value</span></a>): <a class="idref" href="values.html#Val.return_val"><span class="id" type="inductive">return_val</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">match</span> <a class="idref" href="values.html#v"><span class="id" type="variable">v</span></a> <span class="id" type="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> <span class="id" type="var">v'</span> =&gt; <a class="idref" href="values.html#Val.Val_Normal"><span class="id" type="constructor">Val_Normal</span></a> (<a class="idref" href="values.html#Val.Bool"><span class="id" type="constructor">Bool</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.4/stdlib/Coq.Init.Datatypes.html#negb"><span class="id" type="definition">negb</span></a> <span class="id" type="var">v'</span>))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <span class="id" type="var">_</span> =&gt; <a class="idref" href="values.html#Val.Val_Abnormal"><span class="id" type="constructor">Val_Abnormal</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" type="keyword">end</span>.<br/>
+<span class="id" type="keyword">End</span> <a class="idref" href="values.html#"><span class="id" type="module">Val</span></a>.<br/>
+
+<br/>
+&nbsp;</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>
